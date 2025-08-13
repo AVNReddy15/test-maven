@@ -1,3 +1,4 @@
+*/
 pipeline{
 agent any
 stages 
@@ -40,4 +41,35 @@ ansiblePlaybook credentialsId: 'edf29c56-6626-4ce1-a40e-4d6a98e6afea', disableHo
 }
 }
 }
+}
+/*
+node {
+   
+    stage('SCM') { 
+        git credentialsId: 'f1a34574-6f05-46c9-9267-25aadec2d575', url: 'https://github.com/jilu407/test-maven.git'
+    }
+    stage('install') {
+        sh 'mvn install'
+    }
+    stage('test') {
+        sh 'mvn test'
+    }
+    stage('compile') {
+        sh 'mvn compile'
+    }
+    stage('package') {
+        sh 'mvn package'
+    }
+    stage('install1') {
+        sh 'mvn install'
+    }
+    stage('test1') {
+        sh 'mvn test'
+    }
+    stage('install2') {
+        sh 'mvn install'
+    }
+    stage('test2') {
+        sh 'mvn test'
+    }
 }
